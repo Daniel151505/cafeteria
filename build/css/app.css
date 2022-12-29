@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.nav {
+  background-color: brown;
+}
+
 body {
   background-color: rgb(255, 106, 0);
   font-size: 4rem;
