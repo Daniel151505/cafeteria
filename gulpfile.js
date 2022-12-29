@@ -1,8 +1,14 @@
+const { src, dest } = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
 
-
-function tarea( done ) {
-    console.log('Desde mi primer tarea...');
+function css( done ) {
+    //compilar sass
+    // 1: Identificar archivo, 2: Compilarla, 3: Guardar el .css
+    src('src/scss/app.scss')
+        .pipe( sass() )
+        .pipe( dest('build/css') )
+    
     done();
 }
 
-exports.tarea = tarea;
+exports.css = css;
