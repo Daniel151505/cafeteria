@@ -14,13 +14,20 @@ function css( done ) {
     done();
 }
 
+function imagenes() {
+    return src('src/img/**/*')
+        .pipe( dest('build/img') );
+}
+
 function dev() {
-    watch( 'src/scss/**/*.scss', css )
+    watch( 'src/scss/**/*.scss', css );
+    watch( 'src/img/**/*', imagenes );
 }
 
 exports.css = css;
 exports.dev = dev;
-exports.default = series( css, dev );
+exports.imagenes = imagenes;
+exports.default = series( imagenes, css, dev );
 
 // series: Se inicia una tarea, y hasta que finaliza, incia la siguiente.
 // parallel: Todas inician al mismo tiempo
